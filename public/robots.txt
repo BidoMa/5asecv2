@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://franquicias.5asec.com.ar/sitemap.xml

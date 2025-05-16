@@ -1,0 +1,238 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-purple to-orange;
+  }
+
+  .glass-card {
+    @apply backdrop-blur-md bg-white/80 border border-white/40 shadow-glass rounded-2xl;
+  }
+
+  .glass-card-dark {
+    @apply backdrop-blur-md bg-purple/10 border border-purple/20 shadow-glass rounded-2xl;
+  }
+
+  .glass-button {
+    @apply backdrop-blur-md bg-white/20 hover:bg-white/30 border border-white/30 
+           shadow-glass rounded-full transition-all duration-300;
+  }
+
+  .geometric-shape {
+    @apply absolute opacity-50 animate-spin-slow;
+  }
+}
+
+/* Animación de resaltado para el formulario */
+@keyframes highlight-pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(231, 98, 0, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(231, 98, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(231, 98, 0, 0);
+  }
+}
+
+.highlight-pulse {
+  animation: highlight-pulse 1.5s ease-out;
+}
+
+/* Estilos para el iframe de HubSpot */
+.hubspot-iframe-container {
+  min-height: 300px;
+  width: 100%;
+}
+
+.hubspot-iframe-container iframe {
+  transition: opacity 0.3s ease;
+}
+
+/* Estilos para efectos de brillo */
+.shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.shine::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: rotate(30deg);
+  animation: shine 6s infinite linear;
+}
+
+@keyframes shine {
+  0% {
+    transform: translateX(-100%) rotate(30deg);
+  }
+  100% {
+    transform: translateX(100%) rotate(30deg);
+  }
+}
+
+/* Estilos para formas geométricas */
+.blob-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  animation: morph 8s ease-in-out infinite;
+}
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+  50% {
+    border-radius: 30% 60% 70% 40% / 50% 60% 30% 60%;
+  }
+  100% {
+    border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  }
+}
+
+/* Estilos personalizados para el formulario de HubSpot */
+.hubspot-custom-form .hs-form {
+  @apply space-y-3;
+}
+
+.hubspot-custom-form .hs-form-field {
+  @apply mb-3;
+}
+
+.hubspot-custom-form .hs-form-field label {
+  @apply block text-xs font-medium text-gray-700 mb-1;
+}
+
+.hubspot-custom-form .hs-input {
+  @apply w-full px-3 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-purple focus:border-transparent transition-all duration-200 text-sm;
+}
+
+.hubspot-custom-form .hs-error-msgs {
+  @apply mt-1 text-xs text-red-600 list-none p-0;
+}
+
+.hubspot-custom-form .hs-button {
+  @apply w-full bg-gradient-to-r from-orange to-orange-dark hover:from-orange-dark hover:to-orange text-white font-bold py-2 px-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 mt-2 text-sm;
+}
+
+.hubspot-custom-form .hs-richtext {
+  @apply text-xs text-gray-500 mt-2;
+}
+
+.hubspot-custom-form .legal-consent-container {
+  @apply text-xs text-gray-500;
+}
+
+.hubspot-custom-form .hs-form-booleancheckbox-display {
+  @apply text-xs;
+}
+
+.hubspot-custom-form textarea.hs-input {
+  @apply h-24;
+}
+
+.hubspot-custom-form .hs-dependent-field {
+  @apply mb-3;
+}
+
+.hubspot-custom-form .hs-fieldtype-textarea .input {
+  @apply mb-2;
+}
+
+.hubspot-custom-form .hs-recaptcha {
+  @apply mb-3 transform scale-90 origin-left;
+}
