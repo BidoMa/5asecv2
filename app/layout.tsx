@@ -45,7 +45,7 @@ export const metadata = {
   alternates: {
     canonical: "https://franquicias.5asec.com.ar",
   },
-    generator: 'v0.dev'
+  generator: "v0.dev",
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
